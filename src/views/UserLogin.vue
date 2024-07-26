@@ -1,6 +1,5 @@
 <template>
     <div class="login-container">
-        <img class="login-bg" src="@/assets/images/login-bg.png">
         <div class="login-wrapper">
             <el-tabs v-model="activeTab">
                 <el-tab-pane label="密码" name="password">
@@ -30,7 +29,7 @@
                                 <el-col :span="8">
                                     <el-button class="authcode-button" type="primary" :loading="PAButtonOption.loading"
                                         :disabled="PAButtonOption.disabled" @click="phoneGetAuthcode(phoneFormRef)">{{
-                                            PAButtonOption.text }}</el-button>
+                PAButtonOption.text }}</el-button>
                                 </el-col>
                             </el-row>
                         </el-form-item>
@@ -52,7 +51,7 @@
                                 <el-col :span="8">
                                     <el-button class="authcode-button" type="primary" :loading="EAButtonOption.loading"
                                         :disabled="EAButtonOption.disabled" @click="emailGetAuthcode(emailFormRef)">{{
-                                            EAButtonOption.text }}</el-button>
+                EAButtonOption.text }}</el-button>
                                 </el-col>
                             </el-row>
                         </el-form-item>
@@ -69,14 +68,23 @@
                 <div class="third-login-body">
                     <el-link :href="apiURLS.weChatLogin">
                         <div class="third-login-items">
-                            <el-button type="success" :icon="ChatDotRound" circle />
+                            <div>
+                            <i class="iconfont icon-wechat-fill"></i>
+                            </div>
                             <el-text size="small">微信</el-text>
+                        </div>
+                    </el-link>
+                    <el-link :href="apiURLS.gitHubLogin">
+                        <div class="third-login-items">
+                            <div>
+                            <i class="iconfont icon-github-fill"></i>
+                            </div>
+                            <el-text size="small">GitHub</el-text>
                         </div>
                     </el-link>
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -85,7 +93,6 @@
 import { ref } from 'vue'
 import { ElForm, ElFormItem, ElInput, ElButton, ElText, ElCol, ElRow } from "element-plus"
 import { useRouter } from 'vue-router'
-import { ChatDotRound } from '@element-plus/icons-vue'
 
 import { apiURLS } from "@/api/urls"
 import { useUserStore } from "@/stores/user"
@@ -111,14 +118,11 @@ const { emailFormRef, EAButtonOption, emailForm, emailFormRule, emailGetAuthcode
     align-items: center;
 }
 
-.login-bg {
-    width: 30%;
-}
-
 .login-wrapper {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     background-color: #ffffff11;
-    padding: 10px;
+    padding: 20px;
     backdrop-filter: blur(20px);
     border-radius: 10px;
     border: 1px solid var(--el-border-color)
@@ -132,17 +136,22 @@ const { emailFormRef, EAButtonOption, emailForm, emailFormRule, emailGetAuthcode
 .third-login-items {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 8px;
 }
-
+.third-login-items>div {
+    box-sizing:border-box;
+    padding: 4px;
+    border-radius: 50%;
+}
+.third-login-items:hover>div{
+    box-shadow:0px 0px 2px 2px #CDD0D6;
+}
 .authcode-button {
     width: 100%;
 }
 
 @media only screen and (max-width:768px) {
-    .login-bg {
-        display: none;
-    }
-
     .login-wrapper {
         width: 80%;
     }

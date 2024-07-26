@@ -5,6 +5,7 @@ const _URLS = {
   logout: '/logout/',
   authcode: '/authcode/',
   weChatLogin: '/social-auth/login/weixin/',
+  gitHubLogin: '/social-auth/login/github/',
   userProfile: '/user/profile/'
 }
 

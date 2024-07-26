@@ -10,6 +10,8 @@ import 'element-plus/theme-chalk/dark/css-vars.css'
 // 自定义全局css
 import './assets/css/reset.css'
 import './assets/css/main.css'
+// iconfont
+import './assets/css/iconfont/iconfont.css'
 
 const app = createApp(App)
 

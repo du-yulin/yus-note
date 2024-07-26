@@ -1,4 +1,4 @@
-import 'axios'
+// import 'axios'
 import 'pinia'
 
 declare module 'axios' {

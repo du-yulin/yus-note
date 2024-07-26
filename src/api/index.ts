@@ -12,5 +12,5 @@ export const authcode = (config: AxiosRequestConfig) => {
   return request<{ phone?: string; email?: string }>(apiURLS.authcode, 'post', config)
 }
 export const getUserProfile = () => {
-  return request<api.userDetail>(apiURLS.userProfile, 'get')
+  return request<api.userDetail>(apiURLS.userProfile, 'get',{withCredentials:true})
 }
